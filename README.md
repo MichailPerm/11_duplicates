@@ -1,6 +1,23 @@
 # Anti-Duplicator
 
-[TODO. There will be project description]
+This script is used to check duplicates in directory.
+
+# Quickstart
+
+To use this script input in bash:
+```bash
+python duplicades.py <dirname>
+(lenv) E:\lproj\11_duplicates>python.exe duplicates.py "."
+Duplicated files ['HEAD'] founded in .\.git\logs directory
+Duplicated files ['HEAD'] founded in .\.git\logs\refs\remotes\origin directory
+Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
+Duplicated files ['HEAD'] founded in .\.git\logs\refs\remotes\origin directory
+Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
+Duplicated files ['master'] founded in .\.git\refs\heads directory
+Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
+Duplicated files checkind was succesfully finished.
+```
+In that example, script checks a root directory of git local repo.
 
 # Project Goals
 
