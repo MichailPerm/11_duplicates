@@ -10,15 +10,18 @@ This script is used to check duplicates in directory.
 
 To use this script input in bash:
 ```bash
-python duplicades.py <dirname>
-Duplicated files ['HEAD'] founded in .\.git\logs directory
-Duplicated files ['HEAD'] founded in .\.git\logs\refs\remotes\origin directory
-Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
-Duplicated files ['HEAD'] founded in .\.git\logs\refs\remotes\origin directory
-Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
-Duplicated files ['master'] founded in .\.git\refs\heads directory
-Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
-Duplicated files checkind was succesfully finished.
+(lenv) mich@mich-desktop:~/lprojects/11_duplicates$ python duplicates.py .
+File HEAD founded in next directories: 
+        ./.git
+        ./.git/refs/remotes/origin
+        ./.git/logs
+        ./.git/logs/refs/remotes/origin
+File master founded in next directories: 
+        ./.git/refs/heads
+        ./.git/refs/remotes/origin
+        ./.git/logs/refs/heads
+        ./.git/logs/refs/remotes/origin
+Duplicated files checking was successfully finished.
 ```
 In that example, script checks a root directory of git local repo.
 
