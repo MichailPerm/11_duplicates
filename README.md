@@ -4,13 +4,23 @@ This script is searching duplicated files in specified directory and subdirector
 
 # Quickstart
 
-To launch this script, input in command line:
+This script is used to check duplicates in directory.
 
+# Quickstart
+
+To use this script input in bash:
 ```bash
-python duplicates.py <path>
+python duplicades.py <dirname>
+Duplicated files ['HEAD'] founded in .\.git\logs directory
+Duplicated files ['HEAD'] founded in .\.git\logs\refs\remotes\origin directory
+Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
+Duplicated files ['HEAD'] founded in .\.git\logs\refs\remotes\origin directory
+Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
+Duplicated files ['master'] founded in .\.git\refs\heads directory
+Duplicated files ['HEAD'] founded in .\.git\refs\remotes\origin directory
+Duplicated files checkind was succesfully finished.
 ```
-
-Launching in Windows the same.
+In that example, script checks a root directory of git local repo.
 
 # Project Goals
 
