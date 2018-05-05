@@ -5,13 +5,15 @@ def walk_through_tree(directories_and_files_tree):
     files_index = 2
     path_index = 0
     files = {}
-    for directory in directories_and_files_tree:
-        full_path = '{}'.format(directory[path_index])
-        for file_name in directory[files_index]:
-            if file_name not in files:
-                files[file_name] = [full_path]
-            else:
-                files[file_name].append(full_path)
+    for full_path, _, names_of_files in directories_and_files_tree:
+
+        # full_path = directory[path_index]
+        # for file_name in directory[files_index]:
+
+            # if file_name not in files:
+            #     files[file_name] = [full_path]
+            # else:
+            #     files[file_name].append(full_path)
     return files
 
 
