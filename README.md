@@ -1,6 +1,16 @@
 # Anti-Duplicator
 
-[TODO. There will be project description]
+This script is searching duplicated files in specified directory and subdirectories.
+
+# Quickstart
+
+To launch this script, input in command line:
+
+```bash
+python duplicates.py <path>
+```
+
+Launching in Windows the same.
 
 # Project Goals
 
