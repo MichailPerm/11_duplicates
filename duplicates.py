@@ -1,36 +1,32 @@
 import sys, os
+from collections import defaultdict
 
 
-def walk_through_tree(directories_and_files_tree):
-    files_index = 2
-    path_index = 0
-    files = {}
-    for full_path, _, names_of_files in directories_and_files_tree:
-
-        # full_path = directory[path_index]
-        # for file_name in directory[files_index]:
-
-            # if file_name not in files:
-            #     files[file_name] = [full_path]
-            # else:
-            #     files[file_name].append(full_path)
-    return files
+def process_files_and_paths(root_dir):
+    names_of_files = defaultdict(list)
+    for dir_name, _, file_names in os.walk(root_dir):
+        full_path = dir_name
+        for file_name in file_names:
+            names_of_files[file_name].append(full_path)
+    return names_of_files
 
 
-def process_directories_info(files):
-    for key, value in files.items():
-        if len(value) < 2:
+
+def print_duplicated_files_paths(names_of_files):
+    for file_name, file_paths in names_of_files.items():
+        if len(file_paths) < 2:
             continue
-        print('File {} founded in next directories: '.format(key))
-        for value_element in value:
-            print('\t{}'.format(value_element))
+        print('File {} founded in next directories: '.format(file_name))
+        for file_path in file_paths:
+            print('\t{}'.format(file_path))
 
 
 if __name__ == '__main__':
+    rootdir_path_indes = 1
     if len(sys.argv) < 2:
         sys.exit('Initial directory is not specified')
-    if not os.path.isdir(sys.argv[1]):
+    if not os.path.isdir(sys.argv[rootdir_path_indes]):
         sys.exit('Specified argument is not a directory')
-    files = walk_through_tree(os.walk(sys.argv[1]))
-    process_directories_info(files)
+    names_of_files = process_files_and_paths(sys.argv[rootdir_path_indes])
+    print_duplicated_files_paths(names_of_files)
     print('Duplicated files checking was successfully finished.')
