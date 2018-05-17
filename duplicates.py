@@ -3,7 +3,7 @@ from collections import defaultdict
 
 
 def get_file_size(file_name, full_path):
-    full_name = full_path + '/' + file_name
+    full_name = os.path.join(full_path, file_name)
     return os.stat(full_name).st_size
 
 
@@ -22,19 +22,15 @@ def print_duplicated_files_paths(names_of_files):
         if len(file_paths) >= 2:
             print('File {} founded in next directories: '.format(file_name))
             for file_path in file_paths:
-                print('\t{}'.format(file_path))
-
-
-def get_root_path(root_path_index=1):
-    return sys.argv[root_path_index]
+                print('\t', file_path)
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        sys.exit('Initial directory is not specified')
-    root_path = get_root_path()
-    if not os.path.isdir(root_path):
-        sys.exit('Specified argument is not a directory')
-    names_of_files = get_files_locations(root_path)
+        exit('Initial directory is not specified')
+    dir_path = sys.argv[1]
+    if not os.path.isdir(dir_path):
+        exit('Specified argument is not a directory')
+    names_of_files = get_files_locations(dir_path)
     print_duplicated_files_paths(names_of_files)
     print('Duplicated files checking was successfully finished.')
